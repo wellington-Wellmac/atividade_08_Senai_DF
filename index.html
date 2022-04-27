@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Wellington Machado-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Atividade 08</title>
+</head>
+
+<body>
+    <div id="corpo">
+        <div class="questao">
+            <h1>Questão 01:<span>Calcular a média ponderada de 3 notas
+                    <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1006"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resposta01">Resultado: A média das 3 notas foi xx.</p>
+            <label for="">Nota 01:</label>
+            <input type="text" id="nota01">
+            <label for="">Nota 02:</label>
+            <input type="text" id="nota02">
+            <label for="">Nota 03:</label>
+            <input type="text" id="nota03">
+            <input type="button" value="Calcular" onclick="calcularMedia()">
+        </div>
+        <script>
+            function calcularMedia() {
+                let nota01 = Number(document.getElementById('nota01').value);
+                let nota02 = Number(document.getElementById('nota02').value);
+                let nota03 = Number(document.getElementById('nota03').value);
+
+                let media01 = (nota01 + nota02 + nota03) / 3;
+
+                let exibeResultado01 = `A média das notas é igual a ${media01.toFixed(2)}`;
+                document.getElementById('resposta01').innerHTML = exibeResultado01;
+            }
+        </script>
+        <div class="questao">
+            <h1>Questão 02:<span> Senha Fixa <a href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1114"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resposta02">Resultado: xxxxx</p>
+            <label for="">Digite a senha:</label>
+            <input type="password" id="senha">
+            <input type="button" value="Validar Senha" onclick="validarSenha()">
+        </div>
+        <script>
+            function validarSenha() {
+                let senhaArmazenada = 2002;
+                let senhaDigitada = Number(document.getElementById('senha').value);
+                let exibeResultado02 = "";
+
+                if (senhaDigitada == senhaArmazenada) {
+                    exibeResultado02 = "Acesso permitido";
+                }
+                else {
+                    exibeResultado02 = "Senha Invalida";
+                }
+                document.getElementById('resposta02').innerHTML = exibeResultado02;
+
+            }
+        </script>
+        <div class="questao">
+            <h1>Questão 03:<span> Intervalo [0,25], [25,50], [50,75], [75,100] <a
+                        href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1037"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resposta03">Resultado: O valor digita esta no intervalo [xx,xx].</p>
+            <label for="valorInformado">Valor:</label>
+            <input type="text" id="valorInformado">
+            <input type="button" value="Verificar Número" onclick="verificaIntervalo()">
+        </div>
+
+        <script>
+            function verificaIntervalo() {
+                let valorInformado = Number(document.getElementById('valorInformado').value);
+                let exibeResultado03 = "";
+
+                if (valorInformado >= 0 && valorInformado <= 25) {
+                    exibeResultado03 = `O número ${valorInformado} está no intervalo  entre 0 e 25.`;
+
+                }
+                else if ((valorInformado >= 26 && valorInformado <= 50)) {
+                    exibeResultado03 = `O número ${valorInformado} está no intervalo  entre 25 e 50.`;
+                }
+                else if ((valorInformado >= 51 && valorInformado <= 75)) {
+                    exibeResultado03 = `O número ${valorInformado} está no intervalo  entre 50 e 75.`;
+                }
+                else if ((valorInformado >= 76 && valorInformado <= 100)) {
+                    exibeResultado03 = `O número ${valorInformado} está no intervalo  entre 75 e 100.`;
+                }
+                else {
+                    exibeResultado03 = `O número ${valorInformado} está fora dos intervalos válidos.`;
+                }
+                document.getElementById('resposta03').innerHTML = exibeResultado03;
+            }
+        </script>
+
+
+        <div class="questao">
+            <h1>Questão 04:<span> Aumento de Salário <a
+                        href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1048"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resposta04">Resultado: Novo salario: xx.xx, Ganho: xx.xx, Percentual: xx%</p>
+            <label for="">Salário atual:</label>
+            <input type="text" id="salarioAtual">
+            <input type="button" value="Calcular" onclick="reajustarSalario()">
+        </div>
+        <!--JS-->
+        <script>
+            function reajustarSalario() {
+                let salarioAtual = Number(document.getElementById('salarioAtual').value);
+                let novoSalario = 0;
+                let percentualAjuste = 0;
+                let valorAumento = 0;
+                let exibeResultado04 = "";
+
+                if (salarioAtual <= 400) {
+                    percentualAjuste = 15;
+                    valorAumento = (salarioAtual * percentualAjuste) / 100;
+                    novoSalario = valorAumento + salarioAtual;
+                    exibeResultado04 = `O salário era de ${salarioAtual.toFixed(2)}R$ <br>   O aumento foi de ${percentualAjuste}% <br> O valor do aumento é de ${valorAumento.toFixed(2)}R$ <br> Com isso o novo salário é de ${novoSalario.toFixed(2)}R$`;
+                }
+                else if (salarioAtual > 400 && salarioAtual <= 800) {
+                    percentualAjuste = 12;
+                    valorAumento = (salarioAtual * percentualAjuste) / 100;
+                    novoSalario = valorAumento + salarioAtual;
+                    exibeResultado04 = `O salário era de ${salarioAtual.toFixed(2)}R$ <br>   O aumento foi de ${percentualAjuste}% <br> O valor do aumento é de ${valorAumento.toFixed(2)}R$ <br> Com isso o novo salário é de ${novoSalario.toFixed(2)}R$`;
+                }
+                else if (salarioAtual > 800 && salarioAtual <= 1200) {
+                    percentualAjuste = 10;
+                    valorAumento = (salarioAtual * percentualAjuste) / 100;
+                    novoSalario = valorAumento + salarioAtual;
+                    exibeResultado04 = `O salário era de ${salarioAtual.toFixed(2)}R$ <br>   O aumento foi de ${percentualAjuste}% <br> O valor do aumento é de ${valorAumento.toFixed(2)}R$ <br> Com isso o novo salário é de ${novoSalario.toFixed(2)}R$`;
+                }
+                else if (salarioAtual > 1200 && salarioAtual <= 2000) {
+                    percentualAjuste = 7;
+                    valorAumento = (salarioAtual * percentualAjuste) / 100;
+                    novoSalario = valorAumento + salarioAtual;
+                    exibeResultado04 = `O salário era de ${salarioAtual.toFixed(2)}R$ <br>   O aumento foi de ${percentualAjuste}% <br> O valor do aumento é de ${valorAumento.toFixed(2)}R$ <br> Com isso o novo salário é de ${novoSalario.toFixed(2)}R$`;
+                }
+                else {
+                    percentualAjuste = 4;
+                    valorAumento = (salarioAtual * percentualAjuste) / 100;
+                    novoSalario = valorAumento + salarioAtual;
+                    exibeResultado04 = `O salário era de ${salarioAtual.toFixed(2)}R$ <br>   O aumento foi de ${percentualAjuste}% <br> O valor do aumento é de ${valorAumento.toFixed(2)}R$ <br> Com isso o novo salário é de ${novoSalario.toFixed(2)}R$`;
+                }
+
+                document.getElementById('resposta04').innerHTML = exibeResultado04;
+            }
+
+        </script>
+
+        <div class="questao">
+            <h1>Questão 05:<span> Imposto de Renda <a
+                        href="https://www.urionlinejudge.com.br/judge/pt/problems/view/1051"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resposta05">Resultado:Imposto xxxxx</p>
+            <label for="">Renda:</label>
+            <input type="text" id="rendaInformada">
+            <input type="button" value="Calcular" onclick="calculaImposto()">
+        </div>
+        <script>
+
+            function faixa01(rendaInformada) {
+                let imposto = 0;
+                let restoRenda = 0;
+                if (rendaInformada < 3000) {
+                    restoRenda = rendaInformada - 2000;
+                    imposto += (restoRenda * (8 / 100));
+                    return imposto;
+                }
+
+                else {
+                    restoRenda = 1000;
+                    imposto += (restoRenda * (8 / 100));
+                    return imposto;
+                }
+            }
+
+            function faixa02(rendaInformada) {
+                let imposto = 0;
+                let restoRenda = 0;
+                if (rendaInformada < 4500) {
+                    restoRenda = rendaInformada - 3000;
+                    imposto += (restoRenda * (18 / 100));
+                    return imposto;
+                }
+                else {
+                    restoRenda = 1500;
+                    imposto += (restoRenda * (18 / 100));
+                    return imposto;
+                }
+            }
+
+            function faixa03(rendaInformada) {
+                let imposto = 0;
+                let restoRenda = 0;
+                restoRenda = rendaInformada - 4500;
+                imposto += (restoRenda * (28 / 100));
+                return imposto;
+            }
+
+            function calculaImposto() {
+                let rendaInformada = Number(document.getElementById('rendaInformada').value);
+                let impostoTotal = 0;
+                let exibeResultado05 = "";
+
+                if (rendaInformada <= 2000) {
+                    impostoTotal = 0;
+                }
+                else {
+                    if (rendaInformada > 2000 && rendaInformada <= 3000) {
+                        impostoTotal += faixa01(rendaInformada);
+                    }
+                    else {
+                        if (rendaInformada > 3000 && rendaInformada <= 4500) {
+                            impostoTotal += faixa01(rendaInformada);
+                            impostoTotal += faixa02(rendaInformada);
+                        }
+                        else {
+                            impostoTotal += faixa01(rendaInformada);
+                            impostoTotal += faixa02(rendaInformada);
+                            impostoTotal += faixa03(rendaInformada);
+                        }
+                    }
+                }
+                exibeResultado05 = `O valor total do imposto de renda é  ${impostoTotal.toFixed(2)}R$ <br>`;
+                document.getElementById('resposta05').innerHTML = exibeResultado05;
+            }
+        </script>
+
+        <div class="questao">
+            <h1>Questão 06:<span> Calcular o salário de um funcionário <a
+                        href="https://www.urionlinejudge.com.br/repository/UOJ_1008.html"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resultado06">Resultado: O funcionario xxxxxx vai receber xxx.</p>
+            <label for="">Nome Funcionário</label>
+            <input type="text" id="nomeFuncionario">
+            <label for="">Valor Hora</label>
+            <input type="text" id="valorHora">
+            <label for="">Total de Horas Trabalhado</label>
+            <input type="text" id="horasTrabalhadas">
+
+            <input type="button" value="Calcular" onclick="calcularSalario01()">
+        </div>
+        <script>
+            function calcularSalario01() {
+                let nomeFuncionario = document.getElementById('nomeFuncionario').value;
+                let valorHora = Number(document.getElementById('valorHora').value);
+                let horasTrabalhadas = Number(document.getElementById('horasTrabalhadas').value);
+                let salarioFuncionario = 0;
+                let exibeResultado06 = "oooo";
+                salarioFuncionario = valorHora * horasTrabalhadas;
+
+                exibeResultado06 = `O funcionário ${nomeFuncionario} recebe ${valorHora.toFixed(2)}R$ por hora <br>
+                e esse mês trabalhou ${horasTrabalhadas} horas com isso seu salário esse mês é de ${salarioFuncionario.toFixed(2)}R$.`;
+                document.getElementById('resultado06').innerHTML = exibeResultado06;
+            }
+
+        </script>
+        <div class="questao">
+            <h1>Questão 07:<span> Calcular o consumo médio de um automóvel <a
+                        href="https://www.urionlinejudge.com.br/repository/UOJ_1014.html"
+                        target="_blank">detalhar</a></span></h1>
+            <p id="resultado07">Resultado: O automóvel fez o consumo médio de xxx.</p>
+            <label for="">Distância percorrida</label>
+            <input type="text" id="distanciaPercorrida">
+            <label for="">Combustível gasto</label>
+            <input type="text" id="combustivelGasto">
+            <input type="button" value="Calcular" onclick="consumoMedio()">
+        </div>
+        <script>
+            function consumoMedio(){
+                let distanciaPercorrida = Number(document.getElementById('distanciaPercorrida').value);
+                let combustivelGasto = Number(document.getElementById('combustivelGasto').value);
+                let consumoMedio = 0;
+                let exibeResultado07 = "";
+                consumoMedio = distanciaPercorrida/combustivelGasto;
+    
+                exibeResultado07 = `Resultado: O automóvel fez o consumo médio de ${consumoMedio.toFixed(3)} km/l. `;
+                
+                document.getElementById('resultado07').innerHTML=exibeResultado07;
+    
+            }
+        </script>
+    </div>
+</body>
+
+</html>
